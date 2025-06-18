@@ -1,0 +1,16 @@
+workflows:
+  android-build:
+    name: Build Android APK
+    max_build_duration: 30
+    environment:
+      vars:
+        JAVA_VERSION: 11
+      android:
+        image: android-31
+    scripts:
+      - name: Clean project
+        script: ./gradlew clean
+      - name: Build APK
+        script: ./gradlew assembleRelease
+    artifacts:
+      - app/build/outputs/apk/release/app-release.apk

@@ -3,10 +3,7 @@ workflows:
     name: Build Android APK
     max_build_duration: 30
     environment:
-      vars:
-        JAVA_VERSION: 11
-      android:
-        image: android-31
+      java: 11
     scripts:
       - name: Clean project
         script: ./gradlew clean
